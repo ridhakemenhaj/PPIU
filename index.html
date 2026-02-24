@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Direktori PPIU – Provinsi Aceh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Kementerian Haji dan Umrah</span>
+      <span class="topbar-right">Kanwil Provinsi Aceh</span>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <div class="nav-brand">
+        <div class="nav-logo"><img src="logo.png" alt="Logo Kemenag" class="nav-logo-img"/></div>
+        <div class="nav-text">
+          <span class="nav-title">PPIU Aceh</span>
+          <span class="nav-sub">Direktori Travel Umrah Resmi</span>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#beranda" class="nav-link">Beranda</a></li>
+        <li><a href="#direktori" class="nav-link">Direktori</a></li>
+        <li><a href="#tentang" class="nav-link">Tentang</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="beranda">
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge-wrap">
+          <span class="hero-badge">★ Resmi &amp; Terpercaya</span>
+        </div>
+        <h1 class="hero-title">Direktori PPIU<br/><span class="hero-highlight">Provinsi Aceh</span></h1>
+        <p class="hero-desc">Temukan Travel Umrah resmi yang telah mendapatkan izin operasional dari Kementerian Haji dan Umrah RI di seluruh wilayah Provinsi Aceh.</p>
+        <div class="hero-actions">
+          <a href="#direktori" class="btn-primary">🔍 Cari Travel</a>
+          <a href="#tentang" class="btn-outline">Pelajari Lebih Lanjut</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat">
+          <span class="hstat-num" id="sTot">0</span>
+          <span class="hstat-lbl">Total PPIU</span>
+        </div>
+        <div class="hstat">
+          <span class="hstat-num" id="sPusat">0</span>
+          <span class="hstat-lbl">Kantor Pusat</span>
+        </div>
+        <div class="hstat">
+          <span class="hstat-num" id="sCabang">0</span>
+          <span class="hstat-lbl">Kantor Cabang</span>
+        </div>
+        <div class="hstat">
+          <span class="hstat-num" id="sKota">0</span>
+          <span class="hstat-lbl">Kab/Kota</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#f5f7f5"/></svg>
+    </div>
+  </section>
+
+  <!-- DIREKTORI -->
+  <section class="direktori" id="direktori">
+    <div class="container">
+      <div class="section-hd">
+        <div class="section-tag">Database Resmi Kemenhaj Prov Aceh</div>
+        <h2 class="section-title">Cari Travel PPIU</h2>
+        <p class="section-desc">Cari berdasarkan nama travel, pimpinan, alamat, atau wilayah kabupaten/kota</p>
+      </div>
+
+      <!-- Search -->
+      <div class="search-wrap">
+        <div class="search-field-wrap">
+          <svg class="s-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="searchInput" class="s-input" placeholder="Ketik nama travel, pimpinan, atau alamat..."/>
+          <button class="s-clear" id="clearBtn" title="Hapus">✕</button>
+        </div>
+        <div class="filter-wrap">
+          <div class="f-group">
+            <span class="f-label">Jenis Kantor</span>
+            <div class="chips" id="filterTipe">
+              <button class="chip active" data-value="">Semua</button>
+              <button class="chip" data-value="PUSAT">Kantor Pusat</button>
+              <button class="chip" data-value="CABANG">Kantor Cabang</button>
+            </div>
+          </div>
+          <div class="f-group">
+            <label class="f-label" for="filterKota">Kabupaten / Kota</label>
+            <select id="filterKota" class="f-select">
+              <option value="">Semua Wilayah</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meta -->
+      <div class="results-bar">
+        <span id="resultCount" class="result-num">Memuat...</span>
+        <span class="sort-txt">Diurutkan A–Z</span>
+      </div>
+
+      <!-- Grid -->
+      <div class="cards-grid" id="cardsGrid"></div>
+
+      <!-- Empty -->
+      <div class="empty" id="emptyState">
+        <span class="empty-ico">🕌</span>
+        <h3>Tidak ada hasil</h3>
+        <p>Coba ubah kata kunci atau filter</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TENTANG -->
+  <section class="info-sec" id="tentang">
+    <div class="container">
+      <div class="section-hd">
+        <div class="section-tag">Informasi</div>
+        <h2 class="section-title">Tentang PPIU</h2>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-ico">📋</div>
+          <h3>Apa itu PPIU?</h3>
+          <p>Penyelenggara Perjalanan Ibadah Umrah (PPIU) adalah biro perjalanan wisata yang telah mendapat izin resmi dari Kementerian Haji dan Umrah RI untuk menyelenggarakan perjalanan ibadah umrah.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-ico">🛡️</div>
+          <h3>Pilih Travel Resmi</h3>
+          <p>PPIU resmi menjamin keamanan, kenyamanan, dan legalitas perjalanan ibadah umrah Anda. Pastikan travel pilihan memiliki SK izin operasional dari Kemenhaj RI yang masih berlaku.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-ico">📞</div>
+          <h3>Hubungi Kami</h3>
+          <p>Untuk verifikasi atau informasi lebih lanjut, hubungi Kantor Wilayah Kementerian Haji dan Umrah Provinsi Aceh atau kunjungi aceh.haji.go.id dan haji.go.id.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <div class="modal-hdr">
+        <div class="mhdr-top">
+          <span class="mbadge" id="mBadge"></span>
+          <button class="mclose" id="modalClose">✕</button>
+        </div>
+        <h2 class="mname" id="mNama"></h2>
+        <p class="mkota" id="mKota"></p>
+      </div>
+      <div class="modal-body">
+        <div class="mrow">
+          <span class="mico">📋</span>
+          <div><span class="mkey">SK Izin Operasional</span><span class="mval" id="mSK"></span></div>
+        </div>
+        <div class="mrow">
+          <span class="mico">📍</span>
+          <div><span class="mkey">Alamat Lengkap</span><span class="mval" id="mAlamat"></span></div>
+        </div>
+        <div class="mrow">
+          <span class="mico">🏢</span>
+          <div><span class="mkey">Jenis Kantor</span><span class="mval" id="mTipe"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="logo.png" alt="Logo" class="footer-logo-img"/></div>
+        <div>
+          <p class="ft-name">PPIU Aceh</p>
+          <p class="ft-sub">Penyelenggara Perjalanan Ibadah Umrah</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <p class="ft-head">Sumber Data</p>
+        <p>Kementerian Haji dan Umrah</p>
+        <p>Kantor Wilayah Provinsi Aceh</p>
+      </div>
+      <div class="footer-links">
+        <p class="ft-head">Tautan Resmi</p>
+        <p><a href="https://haji.go.id" target="_blank">haji.go.id</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Kanwil Kementerian Haji dan Umrah Provinsi Aceh &nbsp;·&nbsp; Data PPIU Resmi Terdaftar</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
